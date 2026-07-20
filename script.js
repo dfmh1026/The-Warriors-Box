@@ -65,6 +65,18 @@ document.querySelectorAll('.about-card, .clase-card, .horario-slot, .testimonio-
     observer.observe(card);
 });
 
+// Reescribe el texto prellenado de los enlaces de WhatsApp conservando
+// el número, para que el mensaje llegue con la clase y la hora elegidas.
+function actualizarMensajeWhatsApp(texto) {
+    document.querySelectorAll('a.js-whatsapp').forEach(a => {
+        const url = new URL(a.href);
+        // Se monta a mano con encodeURIComponent: searchParams.set codifica
+        // los espacios como "+" y algunos clientes de WhatsApp los muestran
+        // tal cual en el mensaje.
+        a.href = `${url.origin}${url.pathname}?text=${encodeURIComponent(texto)}`;
+    });
+}
+
 // Selección de horario: un único listener con feedback visual.
 // Al elegir una franja se lleva al usuario a la sección de reserva.
 document.querySelectorAll('.horario-slot').forEach(slot => {
@@ -112,6 +124,9 @@ document.querySelectorAll('.horario-slot').forEach(slot => {
         slot.appendChild(ripple);
         setTimeout(() => ripple.remove(), 600);
 
+        // Meter la franja elegida en el mensaje que se enviará por WhatsApp
+        actualizarMensajeWhatsApp(`¡Hola! Quiero reservar mi clase de prueba gratis en The Warriors Box para ${clase} a las ${hora}.`);
+
         showNotification(`Has elegido ${clase} a las ${hora}. Confirma abajo para reservar. ⚡`);
         document.querySelector('#reserva')?.scrollIntoView({ behavior: 'smooth' });
     });
@@ -149,17 +164,15 @@ window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', scrollTop > 60);
 }, { passive: true });
 
-// Botones CTA con feedback
+// Botones CTA: solo feedback visual.
+// Los que llevan a WhatsApp son <a>, así que abren la conversación de verdad;
+// ya no se muestra el aviso falso de "nos pondremos en contacto".
 document.querySelectorAll('.cta-button, .cta-button-large').forEach(btn => {
     btn.addEventListener('click', function() {
-        // Feedback visual
         this.style.transform = 'scale(0.95)';
         setTimeout(() => {
             this.style.transform = '';
         }, 100);
-        
-        // Mostrar alerta personalizada
-        showNotification('¡Gracias por tu interés! En breve nos pondremos en contacto. 💪');
     });
 });
 

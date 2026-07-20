@@ -11,13 +11,13 @@ Leyenda: `[ ]` pendiente · `[x]` hecho · 🔴 bloqueante para publicar · 🟡
 
 Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 
-- [ ] **Teléfono de contacto** — ahora pone `+34 XXX XXX XXX` · [index.html:253](index.html#L253) y [config.json:9](config.json#L9)
-- [ ] **Dirección real** — ahora pone `Calle Crossfit 123` (inventada) · [index.html:255](index.html#L255) y [config.json:11](config.json#L11)
-- [ ] **Email real** — verificar si `info@thewarriorsbox.com` existe y se lee
-- [ ] **Enlaces de redes sociales** — los 4 son `href="#"`, no llevan a ningún sitio · [index.html:261-264](index.html#L261-L264)
-- [ ] **Los botones CTA no envían nada a nadie.** "Únete hoy" y "Reserva tu clase gratis" muestran *"En breve nos pondremos en contacto"*, pero no se guarda ni se envía ningún dato: nadie recibe esa solicitud. Un cliente real se quedaría esperando una llamada que nunca llega. · [script.js:109-120](script.js#L109-L120)
-- [ ] **Testimonios inventados.** Carlos M., María L. y Juan P. no son clientes reales · [index.html:212-226](index.html#L212-L226). Publicar reseñas ficticias como si fueran auténticas puede ser publicidad engañosa (en España, Ley de Competencia Desleal). Sustituir por testimonios reales con permiso, o marcarlos claramente como ejemplo.
+- [x] ~~Teléfono de contacto~~ → **+57 312 797 4802**, pulsable con `tel:` *(20 jul 2026)*
+- [x] ~~Dirección real~~ → Cra 1 #61A - 30 *(20 jul 2026)*
+- [x] ~~Enlaces de redes sociales rotos~~ → Facebook, TikTok y YouTube eliminados (no existen); solo queda Instagram con su logo real, enlazando a [@thewarriorsboxx](https://www.instagram.com/thewarriorsboxx) *(20 jul 2026)*
+- [x] ~~Los botones CTA no envían nada a nadie~~ → ahora abren WhatsApp al **+57 312 797 4802** con el mensaje ya escrito. Si el visitante ha elegido una franja horaria, el mensaje la incluye *(20 jul 2026)*
+- [ ] 🔴 **Testimonios inventados.** Carlos M., María L. y Juan P. no son clientes reales · [index.html:212-226](index.html#L212-L226). Publicar reseñas ficticias como auténticas es publicidad engañosa (en Colombia, Estatuto del Consumidor - Ley 1480 de 2011, arts. 29-30). **Pendiente: los vas a cambiar más adelante — conviene hacerlo antes de publicar el sitio.**
 - [ ] **Verificar "desde 2020"** — el footer y `config.json` afirman fundación en 2020 · [index.html:249](index.html#L249)
+- [ ] ¿Hace falta un email de contacto? Se quitó el genérico `info@thewarriorsbox.com` porque no existía
 - [x] ~~Año del copyright desactualizado~~ → ahora se calcula solo con JS, no volverá a quedarse viejo *(20 jul 2026)*
 
 ---
@@ -26,6 +26,7 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 
 - [x] ~~Doble listener en los horarios~~ → unificado en uno solo *(20 jul 2026)*
 - [x] ~~Se "reserva" con cualquier click~~ → eliminada la clase `SistemaReservas` que guardaba reservas falsas en `localStorage`. Ahora al pulsar una franja se marca como elegida y lleva a la sección de reserva, sin afirmar que está confirmada *(20 jul 2026)*
+- [x] Datos de contacto y redes de `config.json` puestos al día (teléfono real, WhatsApp, solo Instagram) *(20 jul 2026)*
 - [ ] **`config.json` no lo usa nadie.** No hay ningún `fetch()` en el código; clases, horarios y testimonios están duplicados a mano en el HTML. Hay que elegir una de dos:
   - cargar el JSON y generar el HTML dinámicamente, **o**
   - borrar `config.json` para que no engañe.
@@ -65,7 +66,7 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 ## 🟢 Contenido que falta
 
 - [ ] **Sección de precios / tarifas** — es de lo primero que busca la gente y ahora mismo no está por ningún lado
-- [ ] **Formulario de reserva real** (la sección `#reserva` es solo un botón)
+- [x] ~~Formulario de reserva real~~ → resuelto vía **WhatsApp**, sin backend. Si algún día quieres registro propio de reservas, haría falta servidor *(20 jul 2026)*
 - [ ] Sección de entrenadores (se dice que son certificados, pero no se muestra a nadie)
 - [ ] Fotos reales del box y de las clases
 - [ ] Mapa de ubicación

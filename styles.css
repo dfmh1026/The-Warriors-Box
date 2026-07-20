@@ -446,6 +446,12 @@ button:focus-visible,
 /* --- Botones --- */
 .cta-button,
 .cta-button-large {
+    /* Funcionan como <button> y como <a> (enlace a WhatsApp) */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    text-decoration: none;
     padding: 1rem 2.6rem;
     font-family: var(--font-body);
     font-size: 1rem;
@@ -1048,6 +1054,27 @@ button:focus-visible,
     background: var(--grad-gold);
     border-color: transparent;
     transform: translateY(-3px);
+}
+
+/* Botón de Instagram con logo + arroba: pastilla, no círculo */
+.footer-socials .social-btn {
+    width: auto;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.15rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.footer-socials .social-btn svg {
+    flex-shrink: 0;
+}
+
+.footer-socials .social-btn:hover {
+    color: var(--black);
 }
 
 .footer-bottom {
