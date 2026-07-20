@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paleta de Colores - The Warriors Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .color-box {
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .color-box:hover {
+            transform: scale(1.05);
+        }
+
+        .color-box p {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .color-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .color-code {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* Colores principales */
+        .primary-dark {
+            background: #0a0e27;
+            color: #fff;
+        }
+
+        .primary-red {
+            background: #ff2d55;
+            color: #fff;
+        }
+
+        .primary-orange {
+            background: #ff6b35;
+            color: #fff;
+        }
+
+        .accent-white {
+            background: #ffffff;
+            color: #0a0e27;
+            border: 2px solid #ddd;
+        }
+
+        .accent-gray {
+            background: #1a1f3a;
+            color: #fff;
+        }
+
+        .accent-gold {
+            background: #ffd700;
+            color: #0a0e27;
+        }
+
+        .description {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .description h2 {
+            color: #ff2d55;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Paleta de Colores - The Warriors Box</h1>
+        
+        <div class="color-grid">
+            <div class="color-box primary-dark">
+                <div class="color-name">Negro Oscuro</div>
+                <div class="color-code">#0a0e27</div>
+                <p>Fondo principal</p>
+            </div>
+            
+            <div class="color-box primary-red">
+                <div class="color-name">Rojo Energético</div>
+                <div class="color-code">#ff2d55</div>
+                <p>Acentos y CTA</p>
+            </div>
+            
+            <div class="color-box primary-orange">
+                <div class="color-name">Naranja Fuego</div>
+                <div class="color-code">#ff6b35</div>
+                <p>Efectos hover</p>
+            </div>
+            
+            <div class="color-box accent-white">
+                <div class="color-name">Blanco Puro</div>
+                <div class="color-code">#ffffff</div>
+                <p>Texto principal</p>
+            </div>
+            
+            <div class="color-box accent-gray">
+                <div class="color-name">Gris Oscuro</div>
+                <div class="color-code">#1a1f3a</div>
+                <p>Elementos secundarios</p>
+            </div>
+            
+            <div class="color-box accent-gold">
+                <div class="color-name">Oro Premium</div>
+                <div class="color-code">#ffd700</div>
+                <p>Detalles premium</p>
+            </div>
+        </div>
+
+        <div class="description">
+            <h2>💪 Concepto de Diseño</h2>
+            <p><strong>Negro Oscuro (#0a0e27):</strong> Color de fondo principal que transmite poder, fortaleza y profesionalismo. Ideal para un gimnasio de crossfit.</p>
+            
+            <p><strong>Rojo Energético (#ff2d55):</strong> Color vibrante que representa la energía, pasión y adrenalina de los entrenamientos de alta intensidad.</p>
+            
+            <p><strong>Naranja Fuego (#ff6b35):</strong> Complementa el rojo, agrega dinamismo en hover effects y transiciones.</p>
+            
+            <p><strong>Blanco Puro (#ffffff):</strong> Texto principal para máxima legibilidad sobre fondos oscuros.</p>
+            
+            <p><strong>Gris Oscuro (#1a1f3a):</strong> Elementos secundarios, tarjetas y separadores sutiles.</p>
+            
+            <p><strong>Oro Premium (#ffd700):</strong> Detalles, bordes y elementos especiales para un toque de lujo.</p>
+            
+            <p><strong>Estilo:</strong> Moderno, agresivo, energético. Inspirado en marcas de fitness premium como Rogue Fitness y CrossFit oficial. Transmite confianza, fuerza y comunidad.</p>
+        </div>
+    </div>
+</body>
+</html>

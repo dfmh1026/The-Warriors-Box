@@ -1,0 +1,98 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo -->
+  <rect width="1200" height="800" fill="#0a0e27"/>
+  
+  <!-- Título -->
+  <text x="600" y="50" font-size="48" font-weight="bold" text-anchor="middle" fill="#ff2d55" font-family="Arial">
+    🎨 PALETA DE COLORES - THE WARRIORS BOX
+  </text>
+  
+  <!-- Color 1: Negro Oscuro -->
+  <g id="color1">
+    <rect x="50" y="100" width="150" height="150" fill="#0a0e27" stroke="#ff2d55" stroke-width="3"/>
+    <text x="125" y="270" font-size="18" font-weight="bold" text-anchor="middle" fill="#ff2d55">Negro Oscuro</text>
+    <text x="125" y="295" font-size="14" text-anchor="middle" fill="#ffd700">#0a0e27</text>
+    <text x="125" y="320" font-size="12" text-anchor="middle" fill="#e0e0e0">Fondo Principal</text>
+  </g>
+  
+  <!-- Color 2: Rojo Energético -->
+  <g id="color2">
+    <rect x="250" y="100" width="150" height="150" fill="#ff2d55" stroke="#ff6b35" stroke-width="3"/>
+    <text x="325" y="270" font-size="18" font-weight="bold" text-anchor="middle" fill="#0a0e27">Rojo Energético</text>
+    <text x="325" y="295" font-size="14" text-anchor="middle" fill="#0a0e27">#ff2d55</text>
+    <text x="325" y="320" font-size="12" text-anchor="middle" fill="#0a0e27">Acentos y CTA</text>
+  </g>
+  
+  <!-- Color 3: Naranja Fuego -->
+  <g id="color3">
+    <rect x="450" y="100" width="150" height="150" fill="#ff6b35" stroke="#ffd700" stroke-width="3"/>
+    <text x="525" y="270" font-size="18" font-weight="bold" text-anchor="middle" fill="#0a0e27">Naranja Fuego</text>
+    <text x="525" y="295" font-size="14" text-anchor="middle" fill="#0a0e27">#ff6b35</text>
+    <text x="525" y="320" font-size="12" text-anchor="middle" fill="#0a0e27">Efectos Hover</text>
+  </g>
+  
+  <!-- Color 4: Blanco Puro -->
+  <g id="color4">
+    <rect x="650" y="100" width="150" height="150" fill="#ffffff" stroke="#ff2d55" stroke-width="3"/>
+    <text x="725" y="270" font-size="18" font-weight="bold" text-anchor="middle" fill="#0a0e27">Blanco Puro</text>
+    <text x="725" y="295" font-size="14" text-anchor="middle" fill="#0a0e27">#ffffff</text>
+    <text x="725" y="320" font-size="12" text-anchor="middle" fill="#0a0e27">Texto Principal</text>
+  </g>
+  
+  <!-- Color 5: Gris Oscuro -->
+  <g id="color5">
+    <rect x="850" y="100" width="150" height="150" fill="#1a1f3a" stroke="#ff2d55" stroke-width="3"/>
+    <text x="925" y="270" font-size="18" font-weight="bold" text-anchor="middle" fill="#ffd700">Gris Oscuro</text>
+    <text x="925" y="295" font-size="14" text-anchor="middle" fill="#ffd700">#1a1f3a</text>
+    <text x="925" y="320" font-size="12" text-anchor="middle" fill="#e0e0e0">Elem. Secundarios</text>
+  </g>
+  
+  <!-- Color 6: Oro Premium -->
+  <g id="color6">
+    <rect x="1050" y="100" width="150" height="150" fill="#ffd700" stroke="#ff2d55" stroke-width="3"/>
+    <text x="1125" y="270" font-size="18" font-weight="bold" text-anchor="middle" fill="#0a0e27">Oro Premium</text>
+    <text x="1125" y="295" font-size="14" text-anchor="middle" fill="#0a0e27">#ffd700</text>
+    <text x="1125" y="320" font-size="12" text-anchor="middle" fill="#0a0e27">Detalles Premium</text>
+  </g>
+  
+  <!-- Línea separadora -->
+  <line x1="50" y1="380" x2="1150" y2="380" stroke="#ff2d55" stroke-width="2" opacity="0.5"/>
+  
+  <!-- CONCEPTO DE DISEÑO -->
+  <text x="600" y="430" font-size="32" font-weight="bold" text-anchor="middle" fill="#ff2d55">CONCEPTO DE DISEÑO</text>
+  
+  <!-- Descripción parte 1 -->
+  <g id="description1">
+    <circle cx="100" cy="500" r="8" fill="#ff2d55"/>
+    <text x="120" y="500" font-size="14" fill="#ffffff" font-weight="bold">MODERNO Y AGRESIVO</text>
+    <text x="120" y="520" font-size="12" fill="#e0e0e0">Inspirado en marcas premium como Rogue Fitness</text>
+  </g>
+  
+  <!-- Descripción parte 2 -->
+  <g id="description2">
+    <circle cx="100" cy="560" r="8" fill="#ff6b35"/>
+    <text x="120" y="560" font-size="14" fill="#ffffff" font-weight="bold">ENERGÉTICO Y DINÁMICO</text>
+    <text x="120" y="580" font-size="12" fill="#e0e0e0">Transmite adrenalina, energía y fuerza bruta</text>
+  </g>
+  
+  <!-- Descripción parte 3 -->
+  <g id="description3">
+    <circle cx="100" cy="620" r="8" fill="#ffd700"/>
+    <text x="120" y="620" font-size="14" fill="#ffffff" font-weight="bold">COMUNIDAD Y CONFIANZA</text>
+    <text x="120" y="640" font-size="12" fill="#e0e0e0">Ambiente inclusivo donde todos pueden ser campeones</text>
+  </g>
+  
+  <!-- Características técnicas -->
+  <g id="features">
+    <text x="600" y="500" font-size="14" fill="#ffffff" font-weight="bold">✓ Animaciones suaves y modernas</text>
+    <text x="600" y="530" font-size="14" fill="#ffffff" font-weight="bold">✓ Gradientes premium en todos los elementos</text>
+    <text x="600" y="560" font-size="14" fill="#ffffff" font-weight="bold">✓ Efectos hover interactivos</text>
+    <text x="600" y="590" font-size="14" fill="#ffffff" font-weight="bold">✓ Diseño totalmente responsivo</text>
+    <text x="600" y="620" font-size="14" fill="#ffffff" font-weight="bold">✓ Sombras dinámicas y depth</text>
+    <text x="600" y="650" font-size="14" fill="#ffffff" font-weight="bold">✓ Sistema de horarios interactivo</text>
+  </g>
+  
+  <!-- Footer -->
+  <line x1="50" y1="700" x2="1150" y2="700" stroke="#ff2d55" stroke-width="2" opacity="0.5"/>
+  <text x="600" y="750" font-size="16" text-anchor="middle" fill="#ffd700" font-weight="bold">💪 THE WARRIORS BOX - Donde los campeones se forjan 💪</text>
+</svg>

@@ -1,0 +1,166 @@
+{
+  "gimnasio": {
+    "nombre": "The Warriors Box",
+    "lema": "Donde los campeones se forjan",
+    "tagline": "Crossfit • Functional • Comunidad",
+    "descripcion": "Gimnasio de crossfit y functional training de alta intensidad",
+    "año_fundacion": 2020,
+    "contacto": {
+      "telefono": "+34 XXX XXX XXX",
+      "email": "info@thewarriorsbox.com",
+      "direccion": "Calle Crossfit 123"
+    },
+    "redes_sociales": {
+      "instagram": "@thewarriorsbox",
+      "facebook": "The Warriors Box",
+      "tiktok": "@thewarriorsbox",
+      "youtube": "The Warriors Box"
+    }
+  },
+  
+  "clases": [
+    {
+      "id": 1,
+      "nombre": "CROSSFIT",
+      "icono": "⚡",
+      "descripcion": "Combina levantamiento olímpico, gimnasia y acondicionamiento metabólico para un entrenamiento completo de alta intensidad.",
+      "duracion_minutos": 60,
+      "dificultad": "Intermedio-Avanzado",
+      "beneficios": [
+        "Fuerza y potencia",
+        "Resistencia cardiovascular",
+        "Flexibilidad y movilidad",
+        "Transformación corporal"
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "FUNCTIONAL",
+      "icono": "🔥",
+      "descripcion": "Entrenamientos funcionales con movimientos naturales que mejoran tu rendimiento en la vida diaria y previenen lesiones.",
+      "duracion_minutos": 60,
+      "dificultad": "Principiante-Avanzado",
+      "beneficios": [
+        "Movimientos naturales",
+        "Bajo impacto articular",
+        "Trabajo en grupo",
+        "Adaptable a todos los niveles"
+      ]
+    }
+  ],
+  
+  "horarios": {
+    "mañana": {
+      "inicio": "05:00",
+      "fin": "09:00",
+      "emoji": "🌅",
+      "clases": [
+        {
+          "hora": "05:00",
+          "tipo": "CROSSFIT",
+          "duracion_min": 60
+        },
+        {
+          "hora": "06:00",
+          "tipo": "FUNCTIONAL",
+          "duracion_min": 60
+        },
+        {
+          "hora": "07:00",
+          "tipo": "CROSSFIT",
+          "duracion_min": 60
+        },
+        {
+          "hora": "08:00",
+          "tipo": "FUNCTIONAL",
+          "duracion_min": 60
+        }
+      ]
+    },
+    "tarde": {
+      "inicio": "16:00",
+      "fin": "20:00",
+      "emoji": "🌅",
+      "clases": [
+        {
+          "hora": "16:00",
+          "tipo": "FUNCTIONAL",
+          "duracion_min": 60
+        },
+        {
+          "hora": "17:00",
+          "tipo": "CROSSFIT",
+          "duracion_min": 60
+        },
+        {
+          "hora": "18:00",
+          "tipo": "FUNCTIONAL",
+          "duracion_min": 60
+        },
+        {
+          "hora": "19:00",
+          "tipo": "CROSSFIT",
+          "duracion_min": 60
+        }
+      ]
+    }
+  },
+  
+  "colores": {
+    "primary_dark": "#0a0e27",
+    "primary_red": "#ff2d55",
+    "primary_orange": "#ff6b35",
+    "accent_white": "#ffffff",
+    "accent_gray": "#1a1f3a",
+    "accent_gold": "#ffd700",
+    "text_light": "#e0e0e0"
+  },
+  
+  "testimonios": [
+    {
+      "id": 1,
+      "nombre": "Carlos M.",
+      "calificacion": 5,
+      "texto": "The Warriors Box cambió mi vida. No solo gané fuerza, también encontré una familia. ¡Recomendado 100%!"
+    },
+    {
+      "id": 2,
+      "nombre": "María L.",
+      "calificacion": 5,
+      "texto": "Los entrenadores son increíbles. Personalizaban cada sesión según mi progreso. Mejor inversión que he hecho."
+    },
+    {
+      "id": 3,
+      "nombre": "Juan P.",
+      "calificacion": 5,
+      "texto": "Pensé que era imposible para mí. Aquí me demostraron que puedo lograr lo que me proponga. ¡Gracias Warriors!"
+    }
+  ],
+  
+  "caracteristicas": {
+    "diseño": [
+      "Moderno y agresivo",
+      "Inspirado en marcas premium",
+      "Totalmente responsivo",
+      "Animaciones suaves"
+    ],
+    "interactividad": [
+      "Sistema de reservas",
+      "Notificaciones personalizadas",
+      "Atajos de teclado",
+      "Efectos hover dinámicos"
+    ],
+    "performance": [
+      "Sin dependencias externas",
+      "CSS optimizado",
+      "JavaScript ligero",
+      "Carga rápida"
+    ]
+  },
+  
+  "promocion": {
+    "oferta": "Única sesión de prueba GRATIS",
+    "condiciones": "Sin compromisos",
+    "cta": "RESERVA TU CLASE GRATIS HOY"
+  }
+}

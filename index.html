@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Warriors Box - Crossfit & Functional | Go To The Next Level</title>
+    <meta name="description" content="The Warriors Box: box de Crossfit y entrenamiento funcional. Entrenadores certificados, horarios de 5 AM a 8 PM y tu primera clase GRATIS.">
+    <link rel="icon" href="assets/thewarriorsBox.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="brand">
+                <span class="brand-mark">
+                    <img src="assets/thewarriorsBox.png" alt="Logo de The Warriors Box">
+                </span>
+                <span class="brand-text">
+                    <span class="brand-title">The <em>Warriors</em> Box</span>
+                    <span class="brand-tagline">Go to the next level</span>
+                </span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#clases" class="nav-link">Clases</a></li>
+                <li><a href="#horarios" class="nav-link">Horarios</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#reserva" class="nav-link nav-cta">Clase gratis</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <img src="assets/thewarriorsBox.png" alt="The Warriors Box" class="hero-logo">
+            <div class="hero-badge"><span class="dot"></span> Inscripciones abiertas</div>
+            <h1 class="hero-title">Forja tu<span class="accent">mejor versión</span></h1>
+            <p class="hero-subtitle">Donde los campeones se forjan</p>
+            <div class="hero-divider"></div>
+            <p class="hero-description">Crossfit • Functional • Comunidad</p>
+            <div class="hero-actions">
+                <button class="cta-button">Únete hoy</button>
+                <button class="cta-button ghost" onclick="document.querySelector('#horarios').scrollIntoView({behavior:'smooth'})">Ver horarios</button>
+            </div>
+        </div>
+        <div class="hero-animation">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Go to the next level ⚔ Crossfit ⚔ Functional ⚔ Comunidad ⚔ Sin excusas ⚔</span>
+            <span>Go to the next level ⚔ Crossfit ⚔ Functional ⚔ Comunidad ⚔ Sin excusas ⚔</span>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">Nuestra esencia</span>
+                <h2 class="section-title">¿Por qué elegir <span class="accent">The Warriors Box</span>?</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">💪</div>
+                    <h3>Entrenamientos Intensos</h3>
+                    <p>Programas de Crossfit y Functional diseñados para maximizar resultados en el menor tiempo.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">👥</div>
+                    <h3>Comunidad Fuerte</h3>
+                    <p>Únete a guerreros como tú. Ambiente de motivación y apoyo mutuo en cada sesión.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🏋️</div>
+                    <h3>Entrenadores Expertos</h3>
+                    <p>Profesionales certificados que te guiarán en cada movimiento para evitar lesiones.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">⏰</div>
+                    <h3>Horarios Flexibles</h3>
+                    <p>Clases desde las 5 AM hasta las 8 PM. Siempre hay un espacio para ti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLASES SECTION -->
+    <section class="clases" id="clases">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">Entrenamientos</span>
+                <h2 class="section-title">Nuestras <span class="accent">clases</span></h2>
+            </div>
+            <div class="clases-grid">
+                <div class="clase-card crossfit">
+                    <div class="clase-icon">⚡</div>
+                    <h3>CROSSFIT</h3>
+                    <p>Combina levantamiento olímpico, gimnasia y acondicionamiento metabólico para un entrenamiento completo de alta intensidad.</p>
+                    <ul class="clase-benefits">
+                        <li>Fuerza y potencia</li>
+                        <li>Resistencia cardiovascular</li>
+                        <li>Flexibilidad y movilidad</li>
+                        <li>Transformación corporal</li>
+                    </ul>
+                </div>
+                <div class="clase-card functional">
+                    <div class="clase-icon">🔥</div>
+                    <h3>FUNCTIONAL</h3>
+                    <p>Entrenamientos funcionales con movimientos naturales que mejoran tu rendimiento en la vida diaria y previenen lesiones.</p>
+                    <ul class="clase-benefits">
+                        <li>Movimientos naturales</li>
+                        <li>Bajo impacto articular</li>
+                        <li>Trabajo en grupo</li>
+                        <li>Adaptable a todos los niveles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIOS SECTION -->
+    <section class="horarios" id="horarios">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">Planifica tu semana</span>
+                <h2 class="section-title">Horarios de <span class="accent">clases</span></h2>
+            </div>
+            <div class="horarios-container">
+                <div class="turno-section">
+                    <h3 class="turno-title">🌅 TURNO MAÑANA</h3>
+                    <p class="turno-subtitle">5:00 AM - 9:00 AM</p>
+                    <div class="horarios-grid">
+                        <div class="horario-slot">
+                            <div class="horario-time">5:00 AM</div>
+                            <div class="horario-clase">CROSSFIT</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                        <div class="horario-slot">
+                            <div class="horario-time">6:00 AM</div>
+                            <div class="horario-clase">FUNCTIONAL</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                        <div class="horario-slot">
+                            <div class="horario-time">7:00 AM</div>
+                            <div class="horario-clase">CROSSFIT</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                        <div class="horario-slot">
+                            <div class="horario-time">8:00 AM</div>
+                            <div class="horario-clase">FUNCTIONAL</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="turno-section">
+                    <h3 class="turno-title">🌇 TURNO TARDE</h3>
+                    <p class="turno-subtitle">4:00 PM - 8:00 PM</p>
+                    <div class="horarios-grid">
+                        <div class="horario-slot">
+                            <div class="horario-time">4:00 PM</div>
+                            <div class="horario-clase">FUNCTIONAL</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                        <div class="horario-slot">
+                            <div class="horario-time">5:00 PM</div>
+                            <div class="horario-clase">CROSSFIT</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                        <div class="horario-slot">
+                            <div class="horario-time">6:00 PM</div>
+                            <div class="horario-clase">FUNCTIONAL</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                        <div class="horario-slot">
+                            <div class="horario-time">7:00 PM</div>
+                            <div class="horario-clase">CROSSFIT</div>
+                            <div class="horario-duracion">60 min</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS SECTION -->
+    <section class="testimonios">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-eyebrow">Testimonios</span>
+                <h2 class="section-title">Lo que dicen nuestros <span class="accent">guerreros</span></h2>
+            </div>
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonio-text">"The Warriors Box cambió mi vida. No solo gané fuerza, también encontré una familia. ¡Recomendado 100%!"</p>
+                    <p class="testimonio-autor">- Carlos M.</p>
+                </div>
+                <div class="testimonio-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonio-text">"Los entrenadores son increíbles. Personalizaban cada sesión según mi progreso. Mejor inversión que he hecho."</p>
+                    <p class="testimonio-autor">- María L.</p>
+                </div>
+                <div class="testimonio-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonio-text">"Pensé que era imposible para mí. Aquí me demostraron que puedo lograr lo que me proponga. ¡Gracias Warriors!"</p>
+                    <p class="testimonio-autor">- Juan P.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="reserva">
+        <div class="container">
+            <h2>¿Listo para <span class="accent">transformarte</span>?</h2>
+            <p>Primera sesión de prueba GRATIS. Sin compromisos.</p>
+            <button class="cta-button-large">Reserva tu clase gratis</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/thewarriorsBox.png" alt="The Warriors Box">
+                        <h4>The Warriors Box</h4>
+                    </div>
+                    <p>Forjando campeones desde 2020.<br>Go to the next level.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>📞 +34 XXX XXX XXX</p>
+                    <p>📧 info@thewarriorsbox.com</p>
+                    <p>📍 Calle Crossfit 123</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <p>Únete a la comunidad guerrera</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="Facebook">👍</a>
+                        <a href="#" aria-label="TikTok">🎵</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Warriors Box. Todos los derechos reservados. 💪</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
