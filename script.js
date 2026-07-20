@@ -2,13 +2,31 @@
 // INTERACTIVIDAD Y DINAMISMO
 // ============================================
 
+// Año del copyright siempre al día
+const yearEl = document.querySelector('#year');
+if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
 // Menú móvil
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
+function setMenu(abierto) {
+    hamburger?.classList.toggle('active', abierto);
+    navMenu?.classList.toggle('active', abierto);
+    hamburger?.setAttribute('aria-expanded', String(abierto));
+    hamburger?.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+}
+
 hamburger?.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+    setMenu(!hamburger.classList.contains('active'));
+});
+
+// Cerrar el menú con Escape y devolver el foco al botón
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && hamburger?.classList.contains('active')) {
+        setMenu(false);
+        hamburger.focus();
+    }
 });
 
 // Smooth scroll para enlaces del navbar
@@ -23,8 +41,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
         // Cerrar el menú móvil tras navegar
-        hamburger?.classList.remove('active');
-        navMenu?.classList.remove('active');
+        setMenu(false);
     });
 });
 
@@ -48,14 +65,39 @@ document.querySelectorAll('.about-card, .clase-card, .horario-slot, .testimonio-
     observer.observe(card);
 });
 
-// Contador interactivo para horarios
-document.querySelectorAll('.horario-slot').forEach((slot, index) => {
+// Selección de horario: un único listener con feedback visual.
+// Al elegir una franja se lleva al usuario a la sección de reserva.
+document.querySelectorAll('.horario-slot').forEach(slot => {
+    slot.style.cursor = 'pointer';
+
+    // Son <div>, así que hay que darles semántica de botón a mano
+    slot.setAttribute('role', 'button');
+    slot.setAttribute('tabindex', '0');
+    slot.setAttribute('aria-pressed', 'false');
+    const hora = slot.querySelector('.horario-time')?.textContent ?? '';
+    const clase = slot.querySelector('.horario-clase')?.textContent ?? '';
+    slot.setAttribute('aria-label', `Elegir ${clase} a las ${hora}`);
+
+    // Enter y Espacio deben activarlo igual que el ratón
+    slot.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+        }
+    });
+
     slot.addEventListener('click', function() {
+        // Marcar solo la franja elegida
+        document.querySelectorAll('.horario-slot.seleccionado').forEach(s => {
+            s.classList.remove('seleccionado');
+            s.setAttribute('aria-pressed', 'false');
+        });
+        this.classList.add('seleccionado');
+        this.setAttribute('aria-pressed', 'true');
+
         this.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            this.style.transform = 'scale(1)';
-        }, 200);
-        
+        setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
+
         // Efecto ripple
         const ripple = document.createElement('div');
         ripple.style.cssText = `
@@ -67,9 +109,11 @@ document.querySelectorAll('.horario-slot').forEach((slot, index) => {
             pointer-events: none;
             animation: rippleEffect 0.6s ease-out;
         `;
-        
         slot.appendChild(ripple);
         setTimeout(() => ripple.remove(), 600);
+
+        showNotification(`Has elegido ${clase} a las ${hora}. Confirma abajo para reservar. ⚡`);
+        document.querySelector('#reserva')?.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
@@ -122,6 +166,9 @@ document.querySelectorAll('.cta-button, .cta-button-large').forEach(btn => {
 // Función para mostrar notificaciones
 function showNotification(message) {
     const notification = document.createElement('div');
+    // Para que los lectores de pantalla la anuncien
+    notification.setAttribute('role', 'status');
+    notification.setAttribute('aria-live', 'polite');
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -183,9 +230,11 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Contador de horarios disponibles
-const mañanaHorarios = 4;
-const tardeHorarios = 4;
+// Contador de horarios disponibles (leído del DOM, no a mano:
+// así no se desincroniza al añadir o quitar franjas en el HTML)
+const turnos = document.querySelectorAll('.turno-section');
+const mañanaHorarios = turnos[0]?.querySelectorAll('.horario-slot').length ?? 0;
+const tardeHorarios = turnos[1]?.querySelectorAll('.horario-slot').length ?? 0;
 const totalHorarios = mañanaHorarios + tardeHorarios;
 
 console.log(`🏋️ The Warriors Box - Sistema de Horarios Activo`);
@@ -193,64 +242,10 @@ console.log(`📅 Horarios disponibles: ${totalHorarios}`);
 console.log(`🌅 Turno mañana: ${mañanaHorarios} clases (5 AM - 9 AM)`);
 console.log(`🌅 Turno tarde: ${tardeHorarios} clases (4 PM - 8 PM)`);
 
-// Sistema de reserva (simulado)
-class SistemaReservas {
-    constructor() {
-        this.reservas = [];
-        this.cargarReservas();
-    }
-    
-    reservarClase(horario, tipo, usuario) {
-        const reserva = {
-            id: Date.now(),
-            horario,
-            tipo,
-            usuario,
-            fecha: new Date().toLocaleDateString('es-ES'),
-            confirmada: true
-        };
-        
-        this.reservas.push(reserva);
-        this.guardarReservas();
-        
-        console.log(`✅ Reserva confirmada: ${tipo} a las ${horario}`);
-        return reserva;
-    }
-    
-    obtenerReservas() {
-        return this.reservas;
-    }
-    
-    guardarReservas() {
-        localStorage.setItem('reservasWarriors', JSON.stringify(this.reservas));
-    }
-    
-    cargarReservas() {
-        const datos = localStorage.getItem('reservasWarriors');
-        if (datos) {
-            this.reservas = JSON.parse(datos);
-        }
-    }
-}
-
-// Inicializar sistema de reservas
-const sistemaReservas = new SistemaReservas();
-
-// Event listeners para slots de horarios
-document.querySelectorAll('.horario-slot').forEach(slot => {
-    slot.style.cursor = 'pointer';
-    
-    slot.addEventListener('click', function() {
-        const horario = this.querySelector('.horario-time').textContent;
-        const clase = this.querySelector('.horario-clase').textContent;
-        
-        // Simular reserva
-        sistemaReservas.reservarClase(horario, clase, 'Usuario');
-        
-        // Mostrar feedback
-        showNotification(`¡Reserva de ${clase} a las ${horario} realizada! ⚡`);
-    });
-});
+// NOTA: aquí había una clase SistemaReservas que guardaba "reservas" en el
+// localStorage del propio visitante. El gimnasio nunca las recibía, así que
+// se ha eliminado para no dar por confirmada una reserva que no existe.
+// Pendiente: conectar la reserva a un canal real (WhatsApp, email o backend).
 
 // Contador de visitas (simulado)
 let visitasHoy = localStorage.getItem('visitasWarriors') || 0;
@@ -272,6 +267,16 @@ if (isMobile) {
 
 // Agregar keyboard shortcuts
 document.addEventListener('keydown', (e) => {
+    // No secuestrar teclas mientras se escribe en un campo, ni con modificadores
+    const el = document.activeElement;
+    const escribiendo = el && (
+        el.tagName === 'INPUT' ||
+        el.tagName === 'TEXTAREA' ||
+        el.tagName === 'SELECT' ||
+        el.isContentEditable
+    );
+    if (escribiendo || e.ctrlKey || e.altKey || e.metaKey) return;
+
     // Presionar 'H' para ir al home
     if (e.key.toLowerCase() === 'h') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -305,7 +310,9 @@ console.log(`
 
 // Performance monitoring
 window.addEventListener('load', () => {
-    const perfData = window.performance.timing;
-    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-    console.log(`⚡ Página cargada en ${pageLoadTime}ms`);
+    // performance.timing está obsoleto; se usa la Navigation Timing API v2
+    const nav = performance.getEntriesByType('navigation')[0];
+    if (nav) {
+        console.log(`⚡ Página cargada en ${Math.round(nav.duration)}ms`);
+    }
 });

@@ -18,44 +18,46 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 - [ ] **Los botones CTA no envían nada a nadie.** "Únete hoy" y "Reserva tu clase gratis" muestran *"En breve nos pondremos en contacto"*, pero no se guarda ni se envía ningún dato: nadie recibe esa solicitud. Un cliente real se quedaría esperando una llamada que nunca llega. · [script.js:109-120](script.js#L109-L120)
 - [ ] **Testimonios inventados.** Carlos M., María L. y Juan P. no son clientes reales · [index.html:212-226](index.html#L212-L226). Publicar reseñas ficticias como si fueran auténticas puede ser publicidad engañosa (en España, Ley de Competencia Desleal). Sustituir por testimonios reales con permiso, o marcarlos claramente como ejemplo.
 - [ ] **Verificar "desde 2020"** — el footer y `config.json` afirman fundación en 2020 · [index.html:249](index.html#L249)
-- [ ] **Año del copyright: dice 2024, estamos en 2026** · [index.html:269](index.html#L269)
+- [x] ~~Año del copyright desactualizado~~ → ahora se calcula solo con JS, no volverá a quedarse viejo *(20 jul 2026)*
 
 ---
 
 ## 🟡 Bugs y problemas de código
 
-- [ ] **Doble listener en los horarios.** `.horario-slot` recibe dos listeners de click independientes ([script.js:52](script.js#L52) y [script.js:240](script.js#L240)). Un solo click dispara ripple + reserva + notificación a la vez. Unificar en uno.
-- [ ] **Se "reserva" con cualquier click, sin pedir datos.** Al pulsar un horario se guarda una reserva en `localStorage` con el usuario literal `'Usuario'` · [script.js:248](script.js#L248). No sirve de nada: el gimnasio nunca ve esa reserva. Decidir → o formulario real, o quitar la falsa reserva.
+- [x] ~~Doble listener en los horarios~~ → unificado en uno solo *(20 jul 2026)*
+- [x] ~~Se "reserva" con cualquier click~~ → eliminada la clase `SistemaReservas` que guardaba reservas falsas en `localStorage`. Ahora al pulsar una franja se marca como elegida y lleva a la sección de reserva, sin afirmar que está confirmada *(20 jul 2026)*
 - [ ] **`config.json` no lo usa nadie.** No hay ningún `fetch()` en el código; clases, horarios y testimonios están duplicados a mano en el HTML. Hay que elegir una de dos:
   - cargar el JSON y generar el HTML dinámicamente, **o**
   - borrar `config.json` para que no engañe.
 - [ ] **Los colores de `config.json` ya no son los del sitio.** Dice `#0a0e27` (azul) y `#ff2d55` (rosa) · [config.json:109-117](config.json#L109-L117), pero el CSS real usa negro `#0b0b0c`, oro `#ffc81e` y rojo `#d61f2b` · [styles.css:6-19](styles.css#L6-L19). Está desactualizado.
-- [ ] **Atajos de teclado sin protección.** `H`, `C` y `S` saltan de sección aunque estés escribiendo · [script.js:274-289](script.js#L274-L289). Hoy no molesta porque no hay inputs, pero en cuanto añadas el formulario de reserva, escribir "Sanchez" mandará al usuario dando saltos por la página. Ignorar el atajo si el foco está en un `input`/`textarea`.
-- [ ] **Contador de horarios hardcodeado.** `mañanaHorarios = 4` y `tardeHorarios = 4` · [script.js:187-188](script.js#L187-L188): si cambias horarios en el HTML, este número miente.
+- [x] ~~Atajos de teclado sin protección~~ → ahora se ignoran si escribes en un campo o usas Ctrl/Alt/Cmd *(20 jul 2026)*
+- [x] ~~Contador de horarios hardcodeado~~ → se cuenta desde el DOM, ya no se desincroniza *(20 jul 2026)*
+- [x] ~~`performance.timing` obsoleto~~ → migrado a Navigation Timing API v2 *(20 jul 2026)*
 - [ ] **Emoji inconsistente** — el turno de tarde usa 🌇 en el HTML pero 🌅 (amanecer) en [config.json:83](config.json#L83)
-- [ ] `performance.timing` está obsoleto · [script.js:308](script.js#L308) → usar `performance.getEntriesByType('navigation')`
 
 ---
 
 ## 🟡 Accesibilidad
 
-- [ ] **El menú móvil no funciona con teclado.** El hamburguesa es un `<div>` · [index.html:34](index.html#L34): no se puede enfocar con Tab ni activar con Enter. Debe ser `<button>` con `aria-expanded` y `aria-label`.
-- [ ] Las notificaciones no las anuncia un lector de pantalla → añadir `role="status"` / `aria-live="polite"` · [script.js:123](script.js#L123)
+- [x] ~~El menú móvil no funciona con teclado~~ → ahora es `<button>` con `aria-expanded`, `aria-controls`, cierre con Escape y foco visible *(20 jul 2026)*
+- [x] ~~Las notificaciones no las anuncia un lector de pantalla~~ → `role="status"` + `aria-live="polite"` *(20 jul 2026)*
+- [x] ~~Respetar `prefers-reduced-motion`~~ → **ya estaba implementado** en [styles.css:1162](styles.css#L1162). Error mío al revisar. *(20 jul 2026)*
+- [x] Franjas horarias accesibles por teclado (`role="button"`, `tabindex`, Enter/Espacio, `aria-pressed`) *(20 jul 2026)*
+- [x] Menú cerrado ya no es alcanzable con Tab en móvil *(20 jul 2026)*
 - [ ] Verificar contraste del texto gris `--text-muted: #9ea3ad` sobre fondo negro (mínimo AA 4.5:1)
-- [ ] Respetar `prefers-reduced-motion`: hay muchas animaciones infinitas (logo levitando, anillo giratorio, marquee) que pueden marear
 - [ ] Añadir un enlace "saltar al contenido" al inicio
 
 ---
 
 ## 🟢 SEO y rendimiento
 
-- [ ] Añadir Open Graph (`og:title`, `og:description`, `og:image`) para que al compartir en WhatsApp/Instagram salga el logo
-- [ ] Añadir `<link rel="canonical">`
-- [ ] Añadir datos estructurados Schema.org tipo `GymAndFitnessCenter` (ayuda mucho en Google Maps/local)
-- [ ] Poner `width` y `height` en las `<img>` para evitar saltos de maquetación al cargar
-- [ ] `loading="lazy"` en la imagen del footer
+- [x] ~~Open Graph~~ → añadidos `og:title`, `og:description`, `og:image`, `twitter:card` y `theme-color` *(20 jul 2026)*
+- [x] ~~`width`/`height` en las `<img>`~~ → añadidos (640×643) + `fetchpriority="high"` en el hero *(20 jul 2026)*
+- [x] ~~`loading="lazy"` en la imagen del footer~~ *(20 jul 2026)*
+- [x] ~~`apple-touch-icon`~~ *(20 jul 2026)*
+- [ ] **Requiere dominio primero:** `og:url` + `<link rel="canonical">` (deliberadamente no puestos: apuntar a una URL equivocada es peor que no ponerlos)
+- [ ] **Requiere datos reales primero:** Schema.org `GymAndFitnessCenter` — con la dirección y teléfono falsos actuales haría más mal que bien en Google
 - [ ] Convertir el logo a **WebP** — el PNG actual pesa 654 KB y se carga 3 veces
-- [ ] Añadir `apple-touch-icon` para móviles iOS
 - [ ] Crear `robots.txt` y `sitemap.xml`
 
 ---

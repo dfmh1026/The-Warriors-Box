@@ -6,6 +6,20 @@
     <title>The Warriors Box - Crossfit & Functional | Go To The Next Level</title>
     <meta name="description" content="The Warriors Box: box de Crossfit y entrenamiento funcional. Entrenadores certificados, horarios de 5 AM a 8 PM y tu primera clase GRATIS.">
     <link rel="icon" href="assets/thewarriorsBox.png">
+    <link rel="apple-touch-icon" href="assets/thewarriorsBox.png">
+
+    <!-- Vista previa al compartir en WhatsApp, Instagram, etc.
+         PENDIENTE: cuando haya dominio, poner aquí la URL absoluta en
+         og:url, og:image y <link rel="canonical">. Sin dominio no se
+         añaden para no apuntar a un sitio equivocado. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Warriors Box">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="The Warriors Box - Crossfit &amp; Functional">
+    <meta property="og:description" content="Box de Crossfit y entrenamiento funcional. Entrenadores certificados, horarios de 5 AM a 8 PM y tu primera clase GRATIS.">
+    <meta property="og:image" content="assets/thewarriorsBox.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0b0b0c">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,32 +31,32 @@
         <div class="nav-container">
             <a href="#inicio" class="brand">
                 <span class="brand-mark">
-                    <img src="assets/thewarriorsBox.png" alt="Logo de The Warriors Box">
+                    <img src="assets/thewarriorsBox.png" alt="Logo de The Warriors Box" width="640" height="643">
                 </span>
                 <span class="brand-text">
                     <span class="brand-title">The <em>Warriors</em> Box</span>
                     <span class="brand-tagline">Go to the next level</span>
                 </span>
             </a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#clases" class="nav-link">Clases</a></li>
                 <li><a href="#horarios" class="nav-link">Horarios</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 <li><a href="#reserva" class="nav-link nav-cta">Clase gratis</a></li>
             </ul>
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <img src="assets/thewarriorsBox.png" alt="The Warriors Box" class="hero-logo">
+            <img src="assets/thewarriorsBox.png" alt="The Warriors Box" class="hero-logo" width="640" height="643" fetchpriority="high">
             <div class="hero-badge"><span class="dot"></span> Inscripciones abiertas</div>
             <h1 class="hero-title">Forja tu<span class="accent">mejor versión</span></h1>
             <p class="hero-subtitle">Donde los campeones se forjan</p>
@@ -243,7 +257,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-brand">
-                        <img src="assets/thewarriorsBox.png" alt="The Warriors Box">
+                        <img src="assets/thewarriorsBox.png" alt="The Warriors Box" width="640" height="643" loading="lazy">
                         <h4>The Warriors Box</h4>
                     </div>
                     <p>Forjando campeones desde 2020.<br>Go to the next level.</p>
@@ -266,7 +280,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 The Warriors Box. Todos los derechos reservados. 💪</p>
+                <p>&copy; <span id="year">2026</span> The Warriors Box. Todos los derechos reservados. 💪</p>
             </div>
         </div>
     </footer>

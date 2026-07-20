@@ -266,6 +266,26 @@ body {
     flex-direction: column;
     cursor: pointer;
     padding: 4px;
+    /* Reset de <button> */
+    background: none;
+    border: 0;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.hamburger:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+/* Foco visible para quien navega con teclado */
+a:focus-visible,
+button:focus-visible,
+.horario-slot:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 .hamburger span {
@@ -830,6 +850,13 @@ body {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* Franja horaria elegida por el usuario */
+.horario-slot.seleccionado {
+    background: linear-gradient(135deg, rgba(255, 200, 30, 0.22), rgba(214, 31, 43, 0.22));
+    border-color: var(--gold);
+    box-shadow: var(--glow-gold);
+}
+
 .horario-time {
     font-family: var(--font-display);
     font-size: 1.2rem;
@@ -1100,11 +1127,17 @@ body {
         backdrop-filter: blur(18px);
         border-bottom: 1px solid rgba(255, 200, 30, 0.2);
         transform: translateY(-140%);
-        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                    visibility 0s linear 0.4s;
+        /* Fuera de pantalla no debe ser alcanzable con Tab */
+        visibility: hidden;
     }
 
     .nav-menu.active {
         transform: translateY(0);
+        visibility: visible;
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                    visibility 0s linear 0s;
     }
 
     .hamburger {
