@@ -93,6 +93,7 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 - [x] Animaciones de scroll con `IntersectionObserver`
 - [x] Navbar que se compacta al hacer scroll
 - [x] Smooth scroll en la navegación
+- [x] **Botón flotante de WhatsApp** en todas las pantallas, siempre visible al hacer scroll *(20 jul 2026)*
 - [x] **Logo sin fondo blanco** — PNG con transparencia real, recortado a su silueta, letras interiores conservadas y sin halo *(20 jul 2026)*
 - [x] Favicon, navbar, hero y footer apuntando al logo transparente
 

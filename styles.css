@@ -1218,6 +1218,85 @@ button:focus-visible,
     }
 }
 
+/* ============================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   ============================================ */
+.whatsapp-fab {
+    position: fixed;
+    /* env(safe-area-inset-*) evita la barra de gestos en iPhone */
+    right: calc(1.25rem + env(safe-area-inset-right, 0px));
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+    z-index: 1500;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    height: 60px;
+    padding: 0 18px;
+    border-radius: 999px;
+
+    background: #25d366;  /* verde oficial de WhatsApp */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45),
+                0 0 0 rgba(37, 211, 102, 0.6);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+    animation: fabPulse 2.8s ease-out infinite;
+}
+
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+    background: #1eb455;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+    animation-play-state: paused;
+}
+
+.whatsapp-fab:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.whatsapp-fab:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.whatsapp-fab svg {
+    flex-shrink: 0;
+}
+
+/* Halo que late para llamar la atención sin ser molesto */
+@keyframes fabPulse {
+    0%   { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.55); }
+    70%  { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 18px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* En móvil solo el icono: ocupa menos y no tapa contenido */
+@media (max-width: 600px) {
+    .whatsapp-fab {
+        width: 58px;
+        height: 58px;
+        padding: 0;
+        justify-content: center;
+        right: calc(1rem + env(safe-area-inset-right, 0px));
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .whatsapp-fab-text {
+        /* Oculto en pantalla, pero sigue disponible para lectores
+           de pantalla mediante el aria-label del enlace */
+        display: none;
+    }
+}
+
 /* Respeta preferencias de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
     *,
