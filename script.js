@@ -65,6 +65,17 @@ document.querySelectorAll('.about-card, .clase-card, .horario-slot, .testimonio-
     observer.observe(card);
 });
 
+// El flotante se esconde mientras la sección de reserva está en pantalla:
+// ahí ya hay un botón grande que hace lo mismo y competirían entre sí.
+const fab = document.querySelector('.whatsapp-fab');
+const seccionReserva = document.querySelector('#reserva');
+
+if (fab && seccionReserva && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entrada]) => {
+        fab.classList.toggle('oculto', entrada.isIntersecting);
+    }, { threshold: 0.35 }).observe(seccionReserva);
+}
+
 // Reescribe el texto prellenado de los enlaces de WhatsApp conservando
 // el número, para que el mensaje llegue con la clase y la hora elegidas.
 function actualizarMensajeWhatsApp(texto) {
@@ -127,8 +138,9 @@ document.querySelectorAll('.horario-slot').forEach(slot => {
         // Meter la franja elegida en el mensaje que se enviará por WhatsApp
         actualizarMensajeWhatsApp(`¡Hola! Quiero reservar mi clase de prueba gratis en The Warriors Box para ${clase} a las ${hora}.`);
 
-        showNotification(`Has elegido ${clase} a las ${hora}. Confirma abajo para reservar. ⚡`);
-        document.querySelector('#reserva')?.scrollIntoView({ behavior: 'smooth' });
+        // Sin scroll automático: mover la página por el usuario resulta brusco
+        // si solo estaba mirando qué clase hay a una hora concreta.
+        showNotification(`Has elegido ${clase} a las ${hora}. Escríbenos por WhatsApp para reservar. ⚡`);
     });
 });
 
