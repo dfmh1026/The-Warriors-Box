@@ -666,11 +666,34 @@ button:focus-visible,
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55), 0 0 30px rgba(255, 200, 30, 0.08);
 }
 
+/* Placa del icono: SVG en línea que hereda el dorado con currentColor,
+   así se ve igual en todos los sistemas (los emojis los dibujaba el SO). */
 .about-icon {
-    font-size: 2.6rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    animation: bounce 3s ease-in-out infinite;
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 1.25rem;
+    display: grid;
+    place-items: center;
+    border-radius: 20px;
+    color: var(--gold);
+    background: linear-gradient(145deg, rgba(255, 200, 30, 0.14), rgba(214, 31, 43, 0.10));
+    border: 1px solid rgba(255, 200, 30, 0.25);
+    transition: var(--transition);
+}
+
+.about-icon svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+/* El icono reacciona al pasar por la tarjeta, en vez de botar en bucle */
+.about-card:hover .about-icon {
+    color: var(--black);
+    background: var(--grad-gold);
+    border-color: transparent;
+    transform: translateY(-3px) rotate(-5deg);
+    box-shadow: var(--glow-gold);
 }
 
 .about-card h3 {
@@ -1111,11 +1134,6 @@ button:focus-visible,
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50%      { transform: translateY(-30px); }
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(-12px); }
 }
 
 @keyframes spin {

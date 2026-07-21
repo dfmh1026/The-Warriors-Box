@@ -35,6 +35,7 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 - [x] ~~Contador de horarios hardcodeado~~ → se cuenta desde el DOM, ya no se desincroniza *(20 jul 2026)*
 - [x] ~~`performance.timing` obsoleto~~ → migrado a Navigation Timing API v2 *(20 jul 2026)*
 - [ ] **Emoji inconsistente** — el turno de tarde usa 🌇 en el HTML pero 🌅 (amanecer) en [config.json:83](config.json#L83)
+- [ ] **Quedan emojis como iconos** en otras secciones: clases (⚡🔥), turnos (🌅🌇) y footer (📞📍). Mismo problema que tenía la sección "about": los dibuja el sistema operativo. Conviene pasarlos a SVG por coherencia.
 
 ---
 
@@ -93,6 +94,7 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 - [x] Animaciones de scroll con `IntersectionObserver`
 - [x] Navbar que se compacta al hacer scroll
 - [x] Smooth scroll en la navegación
+- [x] **Iconos de la sección "Por qué elegirnos"** — emojis sustituidos por SVG en línea que heredan el dorado de marca. Los emojis los dibujaba cada sistema operativo, así que la web cambiaba de aspecto según el dispositivo *(20 jul 2026)*
 - [x] **Botón flotante de WhatsApp** en todas las pantallas, siempre visible al hacer scroll *(20 jul 2026)*
 - [x] **Logo sin fondo blanco** — PNG con transparencia real, recortado a su silueta, letras interiores conservadas y sin halo *(20 jul 2026)*
 - [x] Favicon, navbar, hero y footer apuntando al logo transparente
