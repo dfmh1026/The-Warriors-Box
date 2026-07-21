@@ -1,0 +1,292 @@
+/* ============================================
+   RESPONSIVE — The Warriors Box
+   ============================================
+
+   IMPORTANTE: este archivo debe cargarse DESPUÉS de styles.css.
+   Al tener la misma especificidad que las reglas base, gana el que
+   se declara último. Si se invierte el orden, deja de funcionar.
+
+   Enfoque: móvil primero en el contenido, ajustes por max-width.
+   Puntos de corte:
+     1200px  portátiles pequeños
+      900px  tablet horizontal → aparece el menú hamburguesa
+      768px  tablet vertical  → las rejillas pasan a una columna
+      600px  móvil grande
+      480px  móvil estándar
+      360px  móvil pequeño (iPhone SE, Android de gama baja)
+   ============================================ */
+
+
+/* ============================================
+   PANTALLAS GRANDES
+   ============================================ */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1360px;
+    }
+
+    .hero-title {
+        font-size: clamp(3.5rem, 6vw, 6rem);
+    }
+}
+
+
+/* ============================================
+   PORTÁTILES PEQUEÑOS
+   ============================================ */
+/* Nota: las rejillas (.about-grid, .clases-grid, .footer-content,
+   .horarios-container) usan repeat(auto-fit, minmax(...)) en styles.css,
+   así que ya se reorganizan solas. Aquí solo se fuerza el número de
+   columnas donde el resultado automático no convence; añadir overrides
+   de más pelearía contra auto-fit sin aportar nada. */
+@media (max-width: 1200px) {
+    .nav-menu {
+        gap: 1.5rem;
+    }
+}
+
+
+/* ============================================
+   TABLET HORIZONTAL — aparece el menú hamburguesa
+   ============================================ */
+@media (max-width: 900px) {
+    .nav-menu {
+        position: fixed;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 1.6rem;
+        padding: 2.5rem 0;
+        background: rgba(11, 11, 12, 0.97);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 200, 30, 0.2);
+        transform: translateY(-140%);
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                    visibility 0s linear 0.4s;
+        /* Fuera de pantalla no debe ser alcanzable con Tab */
+        visibility: hidden;
+        /* Si el menú no cabe, que haga scroll en vez de desbordarse */
+        max-height: calc(100vh - 76px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        visibility: visible;
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                    visibility 0s linear 0s;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+
+/* ============================================
+   TABLET VERTICAL — todo a una columna
+   ============================================ */
+@media (max-width: 768px) {
+    .horarios-container,
+    .about-grid,
+    .clases-grid,
+    .testimonios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Los horarios se quedan en dos columnas: cada franja es solo hora
+       y clase, y a una columna la lista quedaría larguísima */
+    .horarios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .clase-card,
+    .turno-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .about, .clases, .horarios, .testimonios, .cta-section {
+        padding: 4rem 0;
+    }
+}
+
+
+/* ============================================
+   MÓVIL GRANDE
+   ============================================ */
+@media (max-width: 600px) {
+    .whatsapp-fab {
+        width: 56px;
+        height: 56px;
+        right: calc(1rem + env(safe-area-inset-right, 0px));
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+    }
+
+    .marquee-track {
+        font-size: 0.9rem;
+    }
+
+    /* Separadores más juntos: si no, el marquee avanza medio vacío */
+    .marquee-track i::after {
+        margin: 0 1.1rem;
+    }
+}
+
+
+/* ============================================
+   MÓVIL ESTÁNDAR
+   ============================================ */
+@media (max-width: 480px) {
+    .brand-mark {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand-title {
+        font-size: 0.95rem;
+    }
+
+    .brand-tagline {
+        font-size: 0.52rem;
+        letter-spacing: 2.4px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cta-button,
+    .cta-button-large {
+        padding: 0.95rem 1.8rem;
+        font-size: 0.95rem;
+    }
+
+    .container {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+    }
+
+    .about-icon,
+    .clase-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 18px;
+    }
+
+    .about-icon svg,
+    .clase-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .turno-title {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* ============================================
+   MÓVIL PEQUEÑO (iPhone SE y similares)
+   ============================================ */
+@media (max-width: 360px) {
+    /* El nombre de marca compite con el hamburguesa por el ancho */
+    .brand-tagline {
+        display: none;
+    }
+
+    .horarios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.85rem;
+    }
+}
+
+
+/* ============================================
+   MÓVIL EN HORIZONTAL
+   El hero mide 100vh: tumbado, el contenido no cabe y se corta.
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 0 3rem;
+    }
+
+    .hero-logo {
+        width: clamp(90px, 16vw, 140px);
+    }
+
+    .nav-menu {
+        max-height: calc(100vh - 60px);
+    }
+}
+
+
+/* ============================================
+   DISPOSITIVOS TÁCTILES
+   Sin ratón no hay hover: los efectos que solo aparecían al pasar
+   por encima quedarían inaccesibles, así que se muestran fijos.
+   ============================================ */
+@media (hover: none) {
+    .about-card:hover,
+    .clase-card:hover,
+    .testimonio-card:hover {
+        transform: none;
+    }
+
+    .horario-slot:active {
+        background: linear-gradient(135deg, rgba(255, 200, 30, 0.16), rgba(214, 31, 43, 0.16));
+        border-color: var(--gold);
+    }
+
+    /* En táctil el pulso del flotante distrae más que ayuda */
+    .whatsapp-fab {
+        animation: none;
+    }
+}
+
+
+/* ============================================
+   IMPRESIÓN
+   Alguien puede querer imprimir los horarios.
+   ============================================ */
+@media print {
+    .navbar,
+    .whatsapp-fab,
+    .marquee,
+    .hero-animation,
+    .cta-section {
+        display: none !important;
+    }
+
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .horario-slot,
+    .turno-section {
+        border: 1px solid #999;
+        background: none;
+    }
+
+    .section-title,
+    .turno-title,
+    .horario-time {
+        color: #000;
+    }
+}

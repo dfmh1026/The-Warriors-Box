@@ -577,7 +577,25 @@ button:focus-visible,
 .marquee-track span {
     display: inline-flex;
     align-items: center;
-    gap: 3rem;
+    gap: 0;
+}
+
+/* Separador en forma de rombo dibujado con CSS: antes era el carácter ⚔,
+   que cada sistema operativo pintaba a su manera (a veces en color). */
+.marquee-track i {
+    font-style: normal;
+    display: inline-flex;
+    align-items: center;
+}
+
+.marquee-track i::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    margin: 0 1.9rem;
+    background: currentColor;
+    transform: rotate(45deg);
+    opacity: 0.7;
 }
 
 /* ============================================
@@ -774,8 +792,30 @@ button:focus-visible,
 }
 
 .clase-icon {
-    font-size: 3rem;
-    margin-bottom: 0.8rem;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 1rem;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    color: var(--gold);
+    background: linear-gradient(145deg, rgba(255, 200, 30, 0.16), rgba(214, 31, 43, 0.12));
+    border: 1px solid rgba(255, 200, 30, 0.28);
+    transition: var(--transition);
+}
+
+.clase-icon svg {
+    width: 38px;
+    height: 38px;
+    display: block;
+}
+
+.clase-card:hover .clase-icon {
+    color: var(--black);
+    background: var(--grad-gold);
+    border-color: transparent;
+    box-shadow: var(--glow-gold);
+    transform: translateY(-3px);
 }
 
 .clase-card h3 {
@@ -844,6 +884,15 @@ button:focus-visible,
     margin-bottom: 0.4rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.turno-icon {
+    width: 1.15em;
+    height: 1.15em;
+    flex-shrink: 0;
 }
 
 .turno-subtitle {
@@ -950,9 +999,15 @@ button:focus-visible,
 
 .stars {
     color: var(--gold);
-    font-size: 1.05rem;
-    letter-spacing: 3px;
     margin-bottom: 1rem;
+    display: flex;
+    gap: 3px;
+}
+
+.stars svg {
+    width: 17px;
+    height: 17px;
+    display: block;
 }
 
 .testimonio-text {
@@ -1051,6 +1106,22 @@ button:focus-visible,
     color: var(--text-muted);
     line-height: 2;
     font-size: 0.92rem;
+}
+
+/* Línea de contacto: icono + dato, alineados arriba por si el texto
+   ocupa dos renglones en pantallas estrechas */
+.footer-dato {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.footer-dato svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--gold);
+    margin-top: 0.55em;
 }
 
 .footer-socials {
@@ -1156,85 +1227,8 @@ button:focus-visible,
     to   { transform: translateX(-50%); }
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width: 900px) {
-    .nav-menu {
-        position: fixed;
-        top: 76px;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        gap: 1.6rem;
-        padding: 2.5rem 0;
-        background: rgba(11, 11, 12, 0.97);
-        backdrop-filter: blur(18px);
-        border-bottom: 1px solid rgba(255, 200, 30, 0.2);
-        transform: translateY(-140%);
-        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                    visibility 0s linear 0.4s;
-        /* Fuera de pantalla no debe ser alcanzable con Tab */
-        visibility: hidden;
-    }
-
-    .nav-menu.active {
-        transform: translateY(0);
-        visibility: visible;
-        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                    visibility 0s linear 0s;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-}
-
-@media (max-width: 768px) {
-    .horarios-container,
-    .horarios-grid,
-    .about-grid,
-    .clases-grid,
-    .testimonios-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .clase-card,
-    .turno-section {
-        padding: 2rem 1.5rem;
-    }
-
-    .about, .clases, .horarios, .testimonios, .cta-section {
-        padding: 4rem 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .brand-mark {
-        width: 44px;
-        height: 44px;
-    }
-
-    .brand-title {
-        font-size: 0.95rem;
-    }
-
-    .brand-tagline {
-        font-size: 0.52rem;
-        letter-spacing: 2.4px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .cta-button,
-    .cta-button-large {
-        padding: 0.95rem 1.8rem;
-        font-size: 0.95rem;
-    }
-}
+/* Las adaptaciones por tamaño de pantalla viven en responsive.css,
+   que se carga después de esta hoja. */
 
 /* ============================================
    BOTÓN FLOTANTE DE WHATSAPP
@@ -1308,17 +1302,9 @@ button:focus-visible,
     100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* Algo más pequeño y pegado al borde en móvil */
-@media (max-width: 600px) {
-    .whatsapp-fab {
-        width: 56px;
-        height: 56px;
-        right: calc(1rem + env(safe-area-inset-right, 0px));
-        bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
-    }
-}
-
-/* Respeta preferencias de movimiento reducido */
+/* Respeta preferencias de movimiento reducido.
+   Se queda aquí porque es una preferencia del usuario, no una
+   cuestión de dimensiones de pantalla. */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

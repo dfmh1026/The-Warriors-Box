@@ -35,7 +35,7 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 - [x] ~~Contador de horarios hardcodeado~~ → se cuenta desde el DOM, ya no se desincroniza *(20 jul 2026)*
 - [x] ~~`performance.timing` obsoleto~~ → migrado a Navigation Timing API v2 *(20 jul 2026)*
 - [ ] **Emoji inconsistente** — el turno de tarde usa 🌇 en el HTML pero 🌅 (amanecer) en [config.json:83](config.json#L83)
-- [ ] **Quedan emojis como iconos** en otras secciones: clases (⚡🔥), turnos (🌅🌇) y footer (📞📍). Mismo problema que tenía la sección "about": los dibuja el sistema operativo. Conviene pasarlos a SVG por coherencia.
+- [x] ~~Quedan emojis como iconos~~ → **no queda ni un emoji en el HTML**. Clases, turnos, footer, estrellas y separadores del marquee pasados a SVG o a formas CSS *(20 jul 2026)*
 
 ---
 
@@ -91,6 +91,8 @@ Datos falsos o de relleno que hoy están visibles para cualquier visitante.
 - [x] Diseño y maquetación completa (hero, clases, horarios, testimonios, CTA, footer)
 - [x] Paleta de marca extraída del logo (negro / oro / rojo) · [styles.css:6-19](styles.css#L6-L19)
 - [x] Diseño responsive con menú móvil
+- [x] **`responsive.css` separado** con 10 puntos de corte: escritorio grande, portátil, tablet, móvil, móvil pequeño, horizontal, táctil e impresión. Debe cargarse **después** de `styles.css` *(20 jul 2026)*
+- [x] **Cero emojis**: todos los iconos son SVG en línea que heredan el color de marca *(20 jul 2026)*
 - [x] Animaciones de scroll con `IntersectionObserver`
 - [x] Navbar que se compacta al hacer scroll
 - [x] Smooth scroll en la navegación
